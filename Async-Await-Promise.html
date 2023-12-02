@@ -31,13 +31,24 @@
       function getCities() {
         setTimeout(() => {
           let output = "";
-          cities.forEach((city, key) => {
-            output = +`<li key=${index}>${city.name}</li>`;
+          cities.forEach((city, index) => {
+            output += `<li key=${index}>${city.name}</li>`;
           });
+           cities.forEach((city, index) => {
+            output += `<li key=${index}>${city.region}</li>`;
+          });
+          document.body.innerHTML = output;
         }, 1000);
       }
 
-      getCities();
+      function createCity(city, callback) {
+        setTimeout(() => {
+          cities.push(city);
+          callback();
+        }, 2000);
+      }
+
+      createCity({ name: "Nakuru", region: "Central" }, getCities);
     </script>
   </body>
 </html>
