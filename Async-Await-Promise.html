@@ -5,13 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Asyn Await Promise</title>
     <style>
-      h1 {
+      h1,
+      p {
         text-align: center;
+      }
+
+      #main {
+        list-style: none;
       }
     </style>
   </head>
   <body>
     <h1>Asyn Await Promise</h1>
+    <p id="main"></p>
     <script>
       const cities = [
         {
@@ -32,12 +38,11 @@
         setTimeout(() => {
           let output = "";
           cities.forEach((city, index) => {
-            output += `<li key=${index}>${city.name}</li>`;
+            output += `<li key=${index}>${city.name} located in ${city.region} </li>`;
           });
-           cities.forEach((city, index) => {
-            output += `<li key=${index}>${city.region}</li>`;
-          });
-          document.body.innerHTML = output;
+
+          let body = document.querySelector("#main");
+          body.innerHTML = output;
         }, 1000);
       }
 
