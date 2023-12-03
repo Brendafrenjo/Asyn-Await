@@ -1,25 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Asyn Await Promise</title>
-    <style>
-      h1,
-      p {
-        text-align: center;
-      }
-
-      #main {
-        list-style: none;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Asyn Await Promise</h1>
-    <p id="main"></p>
-    <script>
-      const cities = [
+ const cities = [
         {
           name: "Siaya",
           region: "Western",
@@ -54,6 +33,3 @@
       }
 
       createCity({ name: "Nakuru", region: "Central" }, getCities);
-    </script>
-  </body>
-</html>
