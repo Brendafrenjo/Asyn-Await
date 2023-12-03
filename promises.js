@@ -22,13 +22,14 @@ function getPosts() {
 function createPost(post) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      post.push();
+      posts.push(post);
 
       const error = false;
+
       if (!error) {
-        resolve;
+        resolve();
       } else {
-        reject("Error: Something went wrong");
+        reject(`Error: Something went wrong`);
       }
     }, 2000);
   });
