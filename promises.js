@@ -29,10 +29,10 @@ function createPost(post) {
       if (!error) {
         resolve();
       } else {
-        reject(`Error: Something went wrong`);
+        reject(`Error: Something went wrong!`);
       }
     }, 2000);
   });
 }
 
-createPost({ title: "Post Three", body: "This is post three" }).then(getPosts);
+createPost({ title: "Title Three", body: "This is post three" }).then(getPosts);
