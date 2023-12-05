@@ -11,10 +11,10 @@ Promise.all([promise1, promise2, promise3, promise4]).then((values) => {
   console.log(values);
   let output = "";
   values.forEach((value, key) => {
-      if (key === 3) {
-        value.forEach((user, key) => {
-            output += `<p key=${key}>Name: ${user.name} <br /> Username: ${user.username} <br /> Email: ${user.email} <br /> Address: ${  user.address}</p>`;
-        });
+    if (key === 3) {
+      value.forEach((user, key) => {
+        output += `<p key=${key}>Name: ${user.name} <br /> Username: ${user.username} <br /> Email: ${user.email} <br /> Address: ${user.address.street} <br /> City: ${user.address.city} <br /> Phone: ${user.phone} <br /> Website: ${user.website} </p>`;
+      });
     } else {
       return (output += `<p key=${key}>${value}</p>`);
     }
