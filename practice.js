@@ -51,27 +51,50 @@ function createUser(user) {
 // .then(getUsers)
 // .catch((err) => console.log(err));
 
-//Promise all
-const promise1 = Promise.resolve("Hello World");
-const promise2 = 35;
-const promise3 = new Promise((resolve, reject) =>
-  setTimeout(resolve, 2000, "Goodbye")
-);
-const promise4 = fetch(`https://jsonplaceholder.typicode.com/users`).then(
-  (res) => res.json()
-);
+// Async Await
+// async function handleData() {
+//   await createUser({
+//     name: "Peter",
+//     age: 22,
+//     email: "peterkamakis@gmail.com",
+//   });
+//   getUsers();
+// }
 
-Promise.all([promise1, promise2, promise3, promise4]).then((values) => {
-  let output = "";
-  values.forEach((value, key) => {
-    if (key === 3) {
-      value.forEach((user, key) => {
-        output += `<p key=${key}>Username: ${user.username} <br /> Name: ${user.name}  <br /> Email: ${user.email} </p>`;
-      });
-    } else {
-      output += `<p key=${key}>${value}</p>`;
-    }
-  });
-  let body = document.querySelector("#main");
-  body.innerHTML = output;
-});
+// handleData();
+
+// Async Await with fetch
+async function fetchUsers() {
+  const res = await fetch(`https://jsonplaceholder.typicode.com/users`);
+
+  const data = await res.json();
+
+  console.log(data);
+}
+
+fetchUsers();
+
+//Promise all
+// const promise1 = Promise.resolve("Hello World");
+// const promise2 = 35;
+// const promise3 = new Promise((resolve, reject) =>
+//   setTimeout(resolve, 2000, "Goodbye")
+// );
+// const promise4 = fetch(`https://jsonplaceholder.typicode.com/users`).then(
+//   (res) => res.json()
+// );
+
+// Promise.all([promise1, promise2, promise3, promise4]).then((values) => {
+//   let output = "";
+//   values.forEach((value, key) => {
+//     if (key === 3) {
+//       value.forEach((user, key) => {
+//         output += `<p key=${key}>Username: ${user.username} <br /> Name: ${user.name}  <br /> Email: ${user.email} </p>`;
+//       });
+//     } else {
+//       output += `<p key=${key}>${value}</p>`;
+//     }
+//   });
+//   let body = document.querySelector("#main");
+//   body.innerHTML = output;
+// });
