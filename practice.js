@@ -43,11 +43,11 @@ function createUser(user) {
   }, 2000);
 }
 
-//createUser({
+// createUser({
 // name: "Peter",
 // age: 22,
 // email: "peterkamakis@gmail.com",
-//})
+// })
 // .then(getUsers)
 // .catch((err) => console.log(err));
 

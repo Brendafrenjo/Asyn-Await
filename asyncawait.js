@@ -2,32 +2,34 @@ const users = [
   {
     name: "Leanne Graham",
     username: "Bret",
-    comapny: "Romaguera-Crona",
+    company: "Romaguera-Crona",
   },
   {
     name: "Chelsey Dietrich",
     username: "Kamren",
-    comapny: "Keebler LLC",
+    company: "Keebler LLC",
   },
   {
     name: "Ervin Howell",
     username: "Antonette",
-    comapny: "Deckow-Crist",
+    company: "Deckow-Crist",
   },
 ];
 
-function getUser() {
+function getUsers() {
   setTimeout(() => {
-    output = "";
+    let output = "";
     users.forEach((user, index) => {
-      output += `<p key=${index}>Name: ${user.name} <br /> Username: ${user.username} <br /> Company: ${user.comapny.name}</p>`;
-    }, 1000);
-  });
+      output += `<p key=${index}>Name: ${user.name} <br /> Username: ${user.username} <br /> Company: ${user.company}</p>`;
+    });
+    let body = document.querySelector("#main");
+    body.innerHTML = output;
+  }, 1000);
 }
 
 function createUser(user) {
   return new Promise((resolve, reject) => {
-    setTimeout((user) => {
+    setTimeout(() => {
       users.push(user);
 
       const error = false;
@@ -41,8 +43,24 @@ function createUser(user) {
   });
 }
 
-createUser({
-  name: "Mrs. Dennis Schulist",
-  username: "Leopoldo_Corkery",
-  company: "Considine-Lockman",
-}).then(getUser);
+async function handleUsers() {
+  await createUser({
+    name: "Mrs. Dennis Schulist",
+    username: "Leopoldo_Corkery",
+    company: "Considine-Lockman",
+  });
+
+  getUsers();
+}
+
+handleUsers();
+
+async function fetchUsers() {
+  const res = await fetch(`https://jsonplaceholder.typicode.com/users`);
+
+  const data = await res.json();
+
+  console.log(data);
+}
+
+fetchUsers();
