@@ -66,9 +66,15 @@ async function handleUsers() {
 async function fetchUsers() {
   const res = await fetch(`https://jsonplaceholder.typicode.com/users`);
 
-    const data = await res.json();
-    
-console.log(data)
+  const data = await res.json();
+
+  let output = "";
+
+  data.forEach((user, index) => {
+    output += `<p key=${index}>Name: ${user.name} <br /> Username: ${user.username} <br /> Phone: ${user.phone} <br /> Email: ${user.email} <br /> Website: ${user.website} <br /> Company: ${user.company.name}</p>`;
+  });
+    let userData = document.querySelector("#content");
+    userData.innerHTML = output;
 }
 
 handleUsers();
